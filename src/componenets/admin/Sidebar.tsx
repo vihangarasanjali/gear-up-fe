@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import Image from "next/image";
 import { Home, Users, User, Folder, Wrench, Calendar, FileText, LogOut } from "lucide-react";
 
 const navItems = [
@@ -21,7 +22,9 @@ export default function Sidebar() {
   return (
     <aside className="w-64 min-h-screen bg-white border-r shadow-sm px-4 py-6 flex flex-col">
       <div className="mb-8 text-center">
-        <div className="text-lg font-semibold">Company Logo</div>
+        <div className="inline-flex items-center justify-center bg-gray-100 rounded px-2 py-1 mx-auto">
+          <Image src="/Logo.png" alt="Company Logo" width={110} height={32} className="block" />
+        </div>
       </div>
 
       <nav className="space-y-2">
