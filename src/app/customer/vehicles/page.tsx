@@ -1,10 +1,8 @@
-import React from "react";
-
 export default function VehiclesPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">My Vehicles</h1>
-      <div className="bg-white p-6 rounded shadow">To be developed</div>
+      <h1 className="text-2xl font-semibold">My Vehicles</h1>
+      <p className="mt-4">List of your vehicles will appear here.</p>
     </div>
   );
 }
