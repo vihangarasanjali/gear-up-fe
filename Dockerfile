@@ -1,16 +1,22 @@
-# Stage 1: Build locally, then copy to container
-FROM openjdk:17-jdk-slim
-WORKDIR /app
+# Simple frontend Dockerfile using pre-built assets
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
 
-# Copy the pre-built JAR file
-COPY target/*.jar app.jar
+# Remove default nginx static assets
+RUN rm -rf ./*
 
-# Expose the port
-EXPOSE 8080
+# Copy built Next.js application (make sure to run 'npm run build' first)
+COPY ./out/ .
+
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port
+EXPOSE 80
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:8080/actuator/health || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:80/ || exit 1
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
