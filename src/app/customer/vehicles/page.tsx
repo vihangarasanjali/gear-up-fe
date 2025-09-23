@@ -173,7 +173,7 @@ export default function VehiclesPage() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-sm text-foreground font-medium">
+                <label className="text-sm font-medium text-gray-500 dark:text-gray-300">
                   Make
                 </label>
                 <input
@@ -185,7 +185,7 @@ export default function VehiclesPage() {
               </div>
 
               <div>
-                <label className="text-sm text-foreground font-medium">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   Model
                 </label>
                 <input
@@ -197,7 +197,7 @@ export default function VehiclesPage() {
               </div>
 
               <div>
-                <label className="text-sm text-foreground font-medium">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   Year
                 </label>
                 <input
@@ -210,7 +210,7 @@ export default function VehiclesPage() {
               </div>
 
               <div>
-                <label className="text-sm text-foreground font-medium">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   License Plate
                 </label>
                 <input
