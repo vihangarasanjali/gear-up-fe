@@ -12,7 +12,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { } from 'lucide-react';
 
 // Dummy data for the tables
 const appointmentsData = [
@@ -34,40 +34,23 @@ export default function AppointmentsPage() {
     setDisplayMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1));
   };
   
-  const nextDisplayMonth = new Date(displayMonth.getFullYear(), displayMonth.getMonth() + 1);
+  
 
   return (
     <>
       <h1 className="text-3xl font-bold mb-6">Appointments</h1>
 
-      <div className="flex items-center justify-between mb-4">
-        <button onClick={handlePrevMonth} className="p-2 rounded-md hover:bg-gray-100">
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <div className="flex gap-6">
-          <span className="font-semibold text-lg">{displayMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}</span>
-          <span className="font-semibold text-lg">{nextDisplayMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}</span>
-        </div>
-        <button onClick={handleNextMonth} className="p-2 rounded-md hover:bg-gray-100">
-          <ChevronRight className="h-5 w-5" />
-        </button>
-      </div>
+      
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="mb-8">
         <Calendar
           mode="single"
           selected={date}
           onSelect={setDate}
           month={displayMonth}
           onMonthChange={setDisplayMonth}
-          className="rounded-md border p-4"
-        />
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          month={nextDisplayMonth}
-          // The main month state controls both calendars
+          numberOfMonths={2}
+          fixedWeeks
           className="rounded-md border p-4"
         />
       </div>
