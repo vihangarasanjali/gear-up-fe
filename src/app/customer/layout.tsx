@@ -1,5 +1,5 @@
 import React from "react";
-import CustomerSidebar from "../../componenets/customer/Sidebar";
+import CustomerSidebar from "../../components/customer/Sidebar";
 
 export const metadata = {
   title: "Customer - Gear Up",
