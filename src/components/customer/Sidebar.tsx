@@ -46,23 +46,32 @@ export default function CustomerSidebar() {
         {navItems.map((item) => {
           const active =
             pathname === item.href ||
+            (pathname?.startsWith(item.href) && item.href !== "/customer") ||
             (item.href === "/customer" && pathname === "/customer");
           const Icon = item.icon;
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 rounded-md px-3 py-2 ${
+              className={`flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-200 ease-in-out ${
                 active
-                  ? "bg-[var(--color-primary)] text-white font-medium"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-primary text-white font-medium shadow-lg border-l-4 border-secondary"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-primary"
               }`}
             >
               <Icon
                 size={16}
-                className={active ? "text-white" : "text-gray-700"}
+                className={`transition-colors duration-200 ${
+                  active ? "text-white" : "text-gray-500"
+                }`}
               />
-              <span className={active ? "text-white" : ""}>{item.label}</span>
+              <span
+                className={`transition-colors duration-200 ${
+                  active ? "text-white" : ""
+                }`}
+              >
+                {item.label}
+              </span>
             </Link>
           );
         })}
