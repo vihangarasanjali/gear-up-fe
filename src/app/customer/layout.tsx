@@ -2,7 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import Sidebar from "@/componenets/customer/Sidebar";
+import Sidebar from "@/components/customer/Sidebar";
 
 export default function CustomerLayout({
   children,
