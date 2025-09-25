@@ -1,5 +1,5 @@
 import React from "react";
-import EmployeeSidebar from "../../componenets/employee/Sidebar";
+import EmployeeSidebar from "../../components/employee/Sidebar";
 
 export const metadata = {
   title: "Employee - Gear Up",
