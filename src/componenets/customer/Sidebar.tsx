@@ -70,7 +70,7 @@ export default function CustomerSidebar() {
 
       <div className="mt-auto pt-8">
         <Link
-          href="/"
+          href="/customer/login"
           className={`flex items-center gap-3 rounded-md px-3 py-2 bg-red-600 text-white`}
         >
           <LogOut size={16} className="text-white" />

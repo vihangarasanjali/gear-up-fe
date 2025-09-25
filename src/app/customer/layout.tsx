@@ -1,15 +1,21 @@
-import React from "react";
-import Sidebar from "../../componenets/customer/Sidebar";
+"use client";
 
-export const metadata = {
-  title: "Customer - Gear Up",
-};
+import React from "react";
+import { usePathname } from "next/navigation";
+import Sidebar from "../../componenets/customer/Sidebar";
 
 export default function CustomerLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isLoginPage = pathname === "/customer/login";
+
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
+
   return (
     <div className="min-h-screen flex bg-gray-50">
       {/* Sidebar column (fixed width) */}
