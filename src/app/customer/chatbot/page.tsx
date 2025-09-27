@@ -1,10 +1,8 @@
-import React from "react";
-
 export default function ChatbotPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Chatbot</h1>
-      <div className="bg-white p-6 rounded shadow">To be developed</div>
+      <h1 className="text-2xl font-semibold">Chatbot</h1>
+      <p className="mt-4">Chat with our assistant here.</p>
     </div>
   );
 }
