@@ -34,17 +34,20 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="relative">
-              <div className="relative z-10">
+            <div className="relative w-full h-full">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <Image
-                  src="/Logo.png"
+                  src="/hero.png"
                   alt="Gear Up Services"
-                  width={500}
-                  height={400}
-                  className="rounded-lg shadow-2xl"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
-              <div className="absolute -top-4 -right-4 w-full h-full bg-ternary rounded-lg opacity-30"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white/20 rounded-full blur-xl"></div>
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-ternary/30 rounded-full blur-lg"></div>
             </div>
           </div>
         </div>
