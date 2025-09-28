@@ -1,35 +1,37 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
-import Image from "next/image";
-import { Home, Users, User, Folder, Wrench, Calendar, FileText, LogOut } from "lucide-react";
+import { Home, UserCog, User, Briefcase, Calendar, Bell, LogOut} from "lucide-react";
 
 const navItems = [
-  { href: "/admin", label: "Dashboard", icon: <Home size={18} /> },
-  { href: "/admin/employees", label: "Employees", icon: <Users size={18} /> },
-  { href: "/admin/customers", label: "Customers", icon: <User size={18} /> },
-  { href: "/admin/projects", label: "Projects", icon: <Folder size={18} /> },
-  { href: "/admin/services", label: "Services", icon: <Wrench size={18} /> },
-  { href: "/admin/appointments", label: "Appointments", icon: <Calendar size={18} /> },
-  { href: "/admin/modification-requests", label: "Modification Requests", icon: <FileText size={18} /> },
+  { href: "/employee", label: "Dashboard", icon: <Home size={18} /> },
+  { href: "/employee/profile", label: "Profile", icon: <UserCog size={18} /> },
+  { href: "/employee/projects", label: "Projects", icon: <Briefcase size={18} /> },
+  { href: "/employee/appointments", label: "Appointments", icon: <Calendar size={18} /> },
+   { href: "/employee/notifications", label: "Notifications", icon: <Bell size={18} /> },
+
+
 ];
 
-export default function Sidebar() {
-  const pathname = usePathname() || "/admin";
+export default function EmployeeSidebar() {
+  const pathname = usePathname() || "/employee";
 
   return (
     <aside className="w-64 min-h-screen bg-white border-r shadow-sm px-4 py-6 flex flex-col">
-      <div className="mb-8 text-center">
+      <div className="mb-6 text-center">
         <div className="inline-flex items-center justify-center bg-gray-100 rounded px-2 py-1 mx-auto">
           <Image src="/Logo.png" alt="Company Logo" width={110} height={32} className="block" />
         </div>
       </div>
 
+      {/* <div className="mb-4 text-center font-semibold">Company</div> */}
+
       <nav className="space-y-2">
         {navItems.map((item) => {
-          const active = pathname === item.href || (item.href === "/admin" && pathname === "/admin");
+          const active = pathname === item.href || (item.href === "/employee" && pathname === "/employee");
           return (
             <Link
               key={item.href}
